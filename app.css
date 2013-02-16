@@ -1,0 +1,66 @@
+body {
+    padding-bottom: 40px;
+    padding-top: 60px;
+}  
+
+#userlist {
+  height:100px;
+  overflow:scroll-y;
+}
+
+#conversation {
+  overflow:scroll;
+  height:150px;
+}
+
+.valve {
+  float:left;
+  overflow:scroll-y;
+  padding:20px;
+}
+
+.feedback {
+  width:103px;
+  height:103px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:20px;
+}
+
+.green {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #62C462), color-stop(1, #51A351) );
+  background:-moz-linear-gradient( center top, #62C462 5%, #51A351 100% );
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#62C462', endColorstr='#51A351');
+  background-color:#51A351;
+}
+
+.red {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #EE5F5B), color-stop(1, #BD362F) );
+backgrouclear:both;nd:-moz-linear-gradient( center top, #EE5F5B 5%, #BD362F 100% );
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#EE5F5B', endColorstr='#BD362F');
+  background-color:#BD362F;
+}
+
+.circle {
+  -moz-border-radius: 50%;
+  border-radius: 50%; 
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.status {
+  width: 103px;
+  height: 103px;
+  position: relative;
+}
+
+.command {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 23%;
+  left: 23%;
+  display: block;
+  border: 3px solid white;
+  overflow:hidden;
+}
