@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  dir="ltr">
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<head><title>SCADA Valve Control Example</title>
+<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link type="text/css" rel="stylesheet" href="/app.css" media="all">
+<link href="/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a href="/" class="brand">Open HMI</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+            <% if (!user) { %>
+            <form class="navbar-form pull-right" action="/login" method="post">
+              <input type="text" name="username" placeholder="Email" class="span2">
+              <input type="password" name="password" placeholder="Password" class="span2">
+              <button class="btn" type="submit" value="Log In">Sign in</button>
+            </form>
+            <% } else { %>
+              Signed in as <a class="navbar-link" href="/account"><%= user.username %></a>
+            <% } %>
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/account">Account</a></li>
+              <li><a href="/logout">Logout</a><li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+<div class="container-fluid">
+<p>Username: <%= user.username %></p>
+<p>Email: <%= user.email %></p>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/connect.js"></script>
+</body>

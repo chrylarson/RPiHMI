@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  dir="ltr">
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<head><title>SCADA Valve Control Example</title>
+<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link type="text/css" rel="stylesheet" href="/app.css" media="all">
+<link href="/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+<link type="text/css" href="css/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a href="#" class="brand">Open HMI</a>
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+            <% if (!user) { %>
+            <form class="navbar-form pull-right" action="/login" method="post">
+              <input type="text" name="username" placeholder="Email" class="span2">
+              <input type="password" name="password" placeholder="Password" class="span2">
+              <button class="btn" type="submit" value="Log In">Sign in</button>
+            </form>
+            <% } else { %>
+              Signed in as <a class="navbar-link" href="/account"><%= user.username %></a>
+            <% } %>
+            </p>
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="/account">Account</a></li>
+              <li><a href="/logout">Logout</a><li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span4">
+			<div class="well sidebar-nav">
+						<% if (!user) { %>
+				<h4>Please sign in to join the chat.</h4>
+				<% } else { %>
+				<div id="userlist">
+					<b>USERS</b>
+					<div id="users"></div>
+				</div>
+				<div id="messages">
+					<input id="data"/>
+					<input type="button" id="datasend" class="send" value="send" />
+					<div id="conversation"></div>
+				</div>
+				<% } %>
+				</div>
+		</div>
+		<div class="span8">
+			<div class="hero-unit">
+				<% if (!user) { %>
+				<h2>Welcome! Please sign in.</h2>
+				<% } else { %>
+				<h2>Hello, <%= user.username %>.</h2>
+				<% } %>
+			</div>
+			<div class="clear"></div>
+			<div class="marketing">
+			<ul class="thumbnails">
+				<li><div id="valve1001" class="valve thumbnail">
+					<h3>VALVE 1001</h3>
+					<div class="openvalve btn btn-large btn-success">OPEN</div>
+					<div class="closevalve btn btn-large btn-danger">CLOSE</div>
+					<div class="clear"></div>
+					<div class="feedback">
+					<div class="circle status green">
+						<div class="circle command red"></div>
+					</div>
+					</div>
+					<div class="clear"></div>
+				</div></li>
+				<li><div id="valve1002" class="valve thumbnail">
+					<h3>VALVE 1002</h3>
+					<div class="openvalve btn btn-large btn-success">OPEN</div>
+					<div class="closevalve btn btn-large btn-danger">CLOSE</div>
+					<div class="clear"></div>
+					<div class="feedback">
+					<div class="circle status green">
+						<div class="circle command red"></div>
+					</div>
+					</div>
+					<div class="clear"></div>
+				</div></li>
+				<li><div id="valve1003" class="valve thumbnail">
+					<h3>VALVE 1003</h3>
+					<div class="openvalve btn btn-large btn-success">OPEN</div>
+					<div class="closevalve btn btn-large btn-danger">CLOSE</div>
+					<div class="clear"></div>
+					<div class="feedback">
+					<div class="circle status green">
+						<div class="circle command red"></div>
+					</div>
+					</div>
+		            <p>
+		                <label for="amount">Position:</label>
+		                <input type="text" style="width:90%" id="amount">
+		            </p>
+		            <div id="v-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"></div></div>
+					<div class="clear"></div>
+				</div></li>
+			<hr class="soften">
+			<h1> Live Data Graph </h1>
+			<p class="marketing-byline">Graphing data from an arduino in real-time.
+			</p>
+			<div id="chart1">
+			</div>
+			</div>
+		<footer>
+		        <p>&copy; Company 2013</p>
+		  </footer>
+		  </div>
+</div>
+</div>
+<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script>
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
+<script src="/socket.io/socket.io.js" type="text/javascript"></script>
+<script src="/js/highcharts.js" type="text/javascript"></script>
+<script src="/js/connect.js" type="text/javascript"></script>
+</body>
