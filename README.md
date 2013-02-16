@@ -7,6 +7,13 @@ A node.js and socket.io based HMI for controlling the GPIO pins on the Raspberry
 
 Start with the latest Raspbian Wheezy OS installed on a Raspberry Pi, then open a terminal and run the following commands to setup the environment to run the application. Once the application is running use a web browser to visit the Raspberry Pi's IP address. (To get the Raspberry Pi's IP Address enter IFCONFIG in a terminal on the RPi.)
 
+Download:
+  Bootstrap: http://twitter.github.com/bootstrap/
+  Bootstrap jQuery UI: http://addyosmani.github.com/jquery-ui-bootstrap/
+  Highcharts (if you want graphs): http://www.highcharts.com/download
+
+Place bootstrap.js, bootstrap.min.js, jquery-ui-1.10.0.custom.min.js and highcharts.js in the js folder.
+Place bootstrap-responsive.css, bootstrap-responsive.min.css, bootstrap.css, bootstrap.min.css, and jquery-ui-1.10.0.custom.css in the css folder.
 
     apt-get install libssl-dev
     apt-get install curl
